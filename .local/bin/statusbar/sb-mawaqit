@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Displays the time until the next prayer
+
+masjidloc="${XDG_CACHE_HOME:-$HOME/.cache}/mawaqit" # cache masjid choice
+masjid="$(cat $masjidloc)"                          # load cached masjid
+
+pickmasjid() {
+	chosen="$(echo '' | dmenu -p 'Enter Mawaqit Masjid ID')" # dmenu prompt
+	[ -z "$chosen" ] && exit 1                               # exit if user did not enter anything
+	echo "$chosen" > "$masjidloc"                            # write choice to file
+	pkill -RTMIN+30 dwmblocks                                # signal change to dwmblocks
+}
+
+case $BLOCK_BUTTON in
+	1) pickmasjid ;;                                                                                          # Open Masjid Picker
+	2) setsid -f "$BROWSER" https://mawaqit.net/en/"$masjid" ;;                                               # Open Mawaqit page for chosen Masjid
+	3) notify-send "🕋 Prayer Time Module" "Masjid: $masjid\n- Left click to edit Masjid\n- Middle click to open in Browser";; # Info Panel
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;                                                                       # Open this file
+esac
+
+
+echo "🕋$(mawaqit.py $masjid)"

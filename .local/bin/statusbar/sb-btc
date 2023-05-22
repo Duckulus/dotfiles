@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Displays the current price of Bitcoin
+
+case $BLOCK_BUTTON in
+	3) notify-send "🪙Bitcoin Price Module" ;;
+	6) "$TERMINAL" -e "$EDITOR" "$0" ;;                                                                       # Open this file
+esac
+
+echo "$(btc.py)"

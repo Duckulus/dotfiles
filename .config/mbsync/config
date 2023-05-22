@@ -1,0 +1,51 @@
+
+
+IMAPStore amin@haddou.net-remote
+Host imap.1und1.de
+Port 993
+User amin@haddou.net
+PassCmd "pass amin@haddou.net"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore amin@haddou.net-local
+Subfolders Verbatim
+Path /home/aminh/.local/share/mail/amin@haddou.net/
+Inbox /home/aminh/.local/share/mail/amin@haddou.net/INBOX
+
+Channel amin@haddou.net
+Expunge Both
+Far :amin@haddou.net-remote:
+Near :amin@haddou.net-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+
+IMAPStore amin.haddou@outlook.de-remote
+Host imap-mail.outlook.com
+Port 993
+User amin.haddou@outlook.de
+PassCmd "pass amin.haddou@outlook.de"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore amin.haddou@outlook.de-local
+Subfolders Verbatim
+Path /home/aminh/.local/share/mail/amin.haddou@outlook.de/
+Inbox /home/aminh/.local/share/mail/amin.haddou@outlook.de/INBOX
+
+Channel amin.haddou@outlook.de
+Expunge Both
+Far :amin.haddou@outlook.de-remote:
+Near :amin.haddou@outlook.de-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

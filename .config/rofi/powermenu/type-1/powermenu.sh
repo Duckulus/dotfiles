@@ -18,13 +18,13 @@ uptime="`uptime -p | sed -e 's/up //g'`"
 host=`hostname`
 
 # Options
-shutdown=' Shutdown'
-reboot=' Reboot'
-lock=' Lock'
-suspend=' Suspend'
-logout=' Logout'
-yes=' Yes'
-no=' No'
+shutdown='⏻ Shutdown'
+reboot=' Reboot'
+lock=' Lock'
+suspend=' Suspend'
+logout='󰍃 Logout'
+yes=' Yes'
+no=' No'
 
 # Rofi CMD
 rofi_cmd() {
@@ -54,7 +54,7 @@ confirm_exit() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+	echo -e "$shutdown\n$lock\n$reboot\n$suspend\n$logout" | rofi_cmd
 }
 
 # Execute Command

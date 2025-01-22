@@ -30,7 +30,9 @@
             "3": [],
             "4": [],
             "5": []
-        }
+        },
+        "on-scroll-up": "hyprctl dispatch workspace r-1",
+        "on-scroll-down": "hyprctl dispatch workspace r+1"
     },
 
   // Taskbar
@@ -54,13 +56,14 @@
   "hyprland/window": {
     "rewrite": {
       "(.*) - Brave": "$1",
-      "(.*) - Chromium": "$1",
+      //"(.*) - Chromium": "$1",
       "(.*) - Brave Search": "$1",
       "(.*) - Outlook": "$1",
-      "(.*) Microsoft Teams": "$1"
+      "(.*) Microsoft Teams": "$1",
+      "(.*) — Mozilla Firefox": "$1"
     },
     "separate-outputs": true,
-    "max-length": 30
+    "max-length": 30,
   },
 
   // ML4W Welcome App

@@ -19,7 +19,6 @@
 
     // Load Modules
     "include": [
-        "~/.config/ml4w/settings/waybar-quicklinks.json",
         "~/.config/waybar/modules.json"
     ],
 
@@ -37,8 +36,8 @@
 
     // Modules Right    
     "modules-right": [
-        "custom/prayer",
         "custom/updates",
+        "custom/prayer",
         "pulseaudio",
 //"backlight",
         "bluetooth",

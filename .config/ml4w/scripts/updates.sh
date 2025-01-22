@@ -27,7 +27,7 @@ case $install_platform in
 
         # flatpak remote-ls --updates
 
-        updates=$(checkupdates-with-aur | wc -l)
+        updates=$(CHECKUPDATES_DB="/tmp/checkup-db-${UID}-$$" checkupdates-with-aur | wc -l)
     ;;
     fedora)
         updates=$(dnf check-update -q|grep -c ^[a-z0-9])

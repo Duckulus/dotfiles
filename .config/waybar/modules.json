@@ -23,8 +23,6 @@
             "8": "8",
             "9": "9",
             "10": "10",
-            "active": "󱓻",
-            "urgent": "󱓻"
         },
         "persistent_workspaces": {
             "1": [],
@@ -175,7 +173,7 @@
   // Power Menu
   "custom/exit": {
     "format": "",
-    "on-click": "~/.config/ml4w/scripts/wlogout.sh",
+    "on-click": "~/.config/hypr/scripts/power.sh",
     "tooltip-format": "Power Menu"
   },
 

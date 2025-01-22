@@ -1,0 +1,4 @@
+configuration {
+  kb-row-down: "j,Down";
+  kb-row-up: "k,Up";
+}

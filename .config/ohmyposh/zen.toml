@@ -1,16 +1,8 @@
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
-version = 3
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
 final_space = true
-
-[secondary_prompt]
-  template = '❯❯ '
-  foreground = 'magenta'
-  background = 'transparent'
-
-[transient_prompt]
-  template = '❯ '
-  background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
 [[blocks]]
   type = 'prompt'
@@ -18,26 +10,24 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '{{ .Path }}'
-    foreground = 'blue'
-    background = 'transparent'
     type = 'path'
     style = 'plain'
+    background = 'transparent'
+    foreground = 'blue'
+    template = '{{ .Path }}'
 
     [blocks.segments.properties]
-      cache_duration = 'none'
       style = 'full'
 
   [[blocks.segments]]
-    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
-    foreground = 'p:grey'
-    background = 'transparent'
     type = 'git'
     style = 'plain'
+    foreground = 'p:grey'
+    background = 'transparent'
+    template = ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
 
     [blocks.segments.properties]
       branch_icon = ''
-      cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
 
@@ -46,14 +36,13 @@ final_space = true
   overflow = 'hidden'
 
   [[blocks.segments]]
-    template = '{{ .FormattedMs }}'
-    foreground = 'yellow'
-    background = 'transparent'
     type = 'executiontime'
     style = 'plain'
+    foreground = 'yellow'
+    background = 'transparent'
+    template = '{{ .FormattedMs }}'
 
     [blocks.segments.properties]
-      cache_duration = 'none'
       threshold = 5000
 
 [[blocks]]
@@ -62,11 +51,24 @@ final_space = true
   newline = true
 
   [[blocks.segments]]
-    template = '❯'
-    background = 'transparent'
     type = 'text'
     style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+    foreground_templates = [
+      "{{if gt .Code 0}}red{{end}}",
+      "{{if eq .Code 0}}magenta{{end}}",
+    ]
+    background = 'transparent'
+    template = '❯'
 
-    [blocks.segments.properties]
-      cache_duration = 'none'
+[transient_prompt]
+  foreground_templates = [
+    "{{if gt .Code 0}}red{{end}}",
+    "{{if eq .Code 0}}magenta{{end}}",
+  ]
+  background = 'transparent'
+  template = '❯ '
+
+[secondary_prompt]
+  foreground = 'magenta'
+  background = 'transparent'
+  template = '❯❯ '
